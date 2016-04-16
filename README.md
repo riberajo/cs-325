@@ -10,7 +10,8 @@
 
  - Refactor alg3 into python
  - Add alg4
- - Write helper function to get speed
- - Write test generator
+ - ~~Write helper function to get speed~~
+ - ~~Write test generator~~
+ - Add alg3/4 to helper test/speed functions
 
 

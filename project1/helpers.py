@@ -69,35 +69,34 @@ def getAlgTime(algo, algoName, numerations):
 
     print(algoName, algoTime, "iteration", i+1)
 
-def plotAlltheTimes(algo1, algo2, algo1Name, algo2Name):
+def plotAlltheTimes(algo1, algo2, algo4, algo1Name, algo2Name, algo4Name):
     iteration = 1000
     print(getAlgTime(algo1, algo1Name, iteration))
     print(getAlgTime(algo2, algo2Name, iteration))
+    print(getAlgTime(algo4, algo4Name, iteration))
     
     iteration = 10000
     print(getAlgTime(algo1, algo1Name, iteration))
     print(getAlgTime(algo2, algo2Name, iteration))
+    print(getAlgTime(algo4, algo4Name, iteration))
     
     iteration = 100000
     print(getAlgTime(algo1, algo1Name, iteration))
     print(getAlgTime(algo2, algo2Name, iteration))
+    print(getAlgTime(algo4, algo4Name, iteration))
 
     iteration = 1000000
     print(getAlgTime(algo1, algo1Name, iteration))
     print(getAlgTime(algo2, algo2Name, iteration))
+    print(getAlgTime(algo4, algo4Name, iteration))
 
     iteration = 10000000
     print(getAlgTime(algo1, algo1Name, iteration))
     print(getAlgTime(algo2, algo2Name, iteration))
+    print(getAlgTime(algo4, algo4Name, iteration))
     
     iteration = 100000000
     print(getAlgTime(algo1, algo1Name, iteration))
     print(getAlgTime(algo2, algo2Name, iteration))
+    print(getAlgTime(algo4, algo4Name, iteration))
     
-
-
-    
-
-        
-        
-        

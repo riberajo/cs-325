@@ -36,9 +36,11 @@ def betterEnum_msa(array=[]):
 def linearTime_msa(array=[]):
     max_so_far = array[0]
     max_ending_here = 0
-    start_idx, stop_idx, start_idx_so_far = 0    #Initial maximum subarray is array[0:0]
+    start_idx = 0
+    stop_idx = 0
+    start_idx_so_far = 0    #Initial maximum subarray is array[0:0]
 
-    for i in (1, len(array)):
+    for i in range(1, len(array)):
         if(max_ending_here + array[i] > array[i]):  #should this be gt or gteq?
             max_ending_here += array[i]
         else:
@@ -50,4 +52,4 @@ def linearTime_msa(array=[]):
             start_idx = start_idx_so_far
             stop_idx = i
 
-    return max_so_far
+    return start_idx, stop_idx, max_so_far

@@ -44,9 +44,9 @@ def recursive_msa(left_bound=0, right_bound=0, array=[]):
         return right_bound, left_bound, array[left_bound]
     
     #Find the maximum subarrays on the left and right
-    print "Calling recursive_msa from ", left_bound+int(floor((right_bound-left_bound)/2))+1, " to ", right_bound, " for right max"
+    #DEBUGGING: print "Calling recursive_msa from ", left_bound+int(floor((right_bound-left_bound)/2))+1, " to ", right_bound, " for right max"
     start_idx_right, stop_idx_right, right_max = recursive_msa(left_bound+int(floor((right_bound-left_bound)/2))+1, right_bound, array)
-    print "Calling recursive_msa from ", left_bound, " to ", left_bound+int(floor((right_bound-left_bound)/2)), " for left max"
+    #DEBUGGING: print "Calling recursive_msa from ", left_bound, " to ", left_bound+int(floor((right_bound-left_bound)/2)), " for left max"
     start_idx_left, stop_idx_left, left_max = recursive_msa(left_bound, left_bound+int(floor((right_bound-left_bound)/2)), array)
     
     #Maximum for a middle sub array array

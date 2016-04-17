@@ -49,7 +49,7 @@ def randomTest(algo1, algo2, algo3, algo4):
     result3 = algo3(myArr)
     result4 = algo4(myArr)
     
-    if result1 != result2 or result2 != result3 or result3 != result4:
+    if result1 != result2 or result3 != result4:
         print("error")
     else:
         print("Test passed")

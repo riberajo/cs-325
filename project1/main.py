@@ -19,7 +19,7 @@ def main():
     randomTest(enum_msa, betterEnum_msa, recursive_msa_call, linearTime_msa)
 
     #gets running times for various iteration numbers
-    #plotAlltheTimes(enum_msa, betterEnum_msa, recursive_msa_call, linearTime_msa, alg1name, alg2name, alg3name, alg4name)
+    plotAlltheTimes(enum_msa, betterEnum_msa, recursive_msa_call, linearTime_msa, alg1name, alg2name, alg3name, alg4name)
     print("finished")
     
 if __name__ == "__main__":

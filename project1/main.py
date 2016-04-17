@@ -14,7 +14,8 @@ def main():
     getResults(src, linearTime_msa, alg4name)
 
     #uses randomly generated array and compares them to each other
-    randomTest(enum_msa, betterEnum_msa, linearTime_msa)
+    randomTest(enum_msa, betterEnum_msa)
+    randomTest(betterEnum_msa, linearTime_msa)
 
     #gets running times for various iteration numbers
     plotAlltheTimes(enum_msa, betterEnum_msa, linearTime_msa, alg1name, alg2name, alg4name)

@@ -75,7 +75,7 @@ def recursive_holder_msa(array=[]):
 #Algorithm 4
 def linearTime_msa(array=[]):
     max_so_far = array[0]
-    max_ending_here = 0
+    max_ending_here = array[0]
     start_idx = 0
     stop_idx = 0
     start_idx_so_far = 0    #Initial maximum subarray is array[0:0]

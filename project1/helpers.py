@@ -41,14 +41,15 @@ def randomArrayGen():
         myRandomArr.append(random.randrange(-100,100,1))
     return myRandomArr
 
-def randomTest(algo1, algo2, algo4):
+def randomTest(algo1, algo2, algo3, algo4):
     myArr = randomArrayGen()
     
     result1 = algo1(myArr)
     result2 = algo2(myArr)
+    result3 = algo3(myArr)
     result4 = algo4(myArr)
     
-    if result1 != result2 or result1 != result4:
+    if result1 != result2 or result2 != result3 or result3 != result4:
         print("error")
     else:
         print("Test passed")
@@ -74,7 +75,7 @@ def getAlgTime(algo, algoName, numerations):
 
     print(algoName, algoTime, "iteration", i+1)
 
-def plotAlltheTimes(algo1, algo2, algo4, algo1Name, algo2Name, algo4Name):
+def plotAlltheTimes(algo1, algo2, algo3, algo4, algo1Name, algo2Name, algo3Name, algo4Name):
     #n^2 and n^3 algs
     iteration = 100
     print(getAlgTime(algo1, algo1Name, iteration))
@@ -115,20 +116,26 @@ def plotAlltheTimes(algo1, algo2, algo4, algo1Name, algo2Name, algo4Name):
     iteration = 1000
     print(getAlgTime(algo1, algo1Name, iteration))
     print(getAlgTime(algo2, algo2Name, iteration))
+    print(getAlgTime(algo3, algo3Name, iteration))
     print(getAlgTime(algo4, algo4Name, iteration))
    
     #linear and nlgn algs     
     iteration = 10000
+    print(getAlgTime(algo3, algo3Name, iteration))
     print(getAlgTime(algo4, algo4Name, iteration))
     
     iteration = 100000
+    print(getAlgTime(algo3, algo3Name, iteration))
     print(getAlgTime(algo4, algo4Name, iteration))
 
     iteration = 1000000
+    print(getAlgTime(algo3, algo3Name, iteration))
     print(getAlgTime(algo4, algo4Name, iteration))
 
     iteration = 10000000
+    print(getAlgTime(algo3, algo3Name, iteration))
     print(getAlgTime(algo4, algo4Name, iteration))
     
     iteration = 100000000
+    print(getAlgTime(algo3, algo3Name, iteration))
     print(getAlgTime(algo4, algo4Name, iteration))

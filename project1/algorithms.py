@@ -33,7 +33,7 @@ def betterEnum_msa(array=[]):
     return startIdx, stopIdx, maxSum
 
 #Algorithm 3
-def recursive_msa(array=[], left_bound, right_bound):
+def recursive_msa(left_bound, right_bound, array=[]):
     left_max, mid_max, right_max, sub_max, total_sum = 0
     max_left_side, max_right_side = -1000000, -1000000
     
@@ -42,19 +42,19 @@ def recursive_msa(array=[], left_bound, right_bound):
         return array[left_bound]
     
     #Find the maximum subarrays on the left and right
-    left_max = recursive_msa(array,left_bound,(left_bound+right_bound)/2)
-    right_max = recursive_msa(array,(left_bound+right_bound)/2+1,right_bound)
+    left_max = recursive_msa(left_bound,(left_bound+right_bound)/2, array)
+    right_max = recursive_msa((left_bound+right_bound)/2+1,right_bound, array)
     
     #Maximum for a middle sub array array
     #Find max on left side
-    for i in range(left_bound+right_bound)/2, left_bound-1, -1):
+    for i in range((left_bound+right_bound)/2, left_bound-1, -1):
         total_sum += array[i]
         #Update the left side maximum
         if (total_sum > max_left_side):
             max_left_side = total_sum
     total_sum = 0
     #Find max on right side
-    for i in range(left_bound+right_bound)/2+1,right_bound+1):
+    for i in range((left_bound+right_bound)/2+1,right_bound+1):
         total_sum += array[i]
         #Update the right side maximum
         if (total_sum > max_right_side):
@@ -68,7 +68,7 @@ def recursive_msa(array=[], left_bound, right_bound):
     return sub_max
 
 def recursive_holder_msa(array=[]):
-    max = recursive_msa(array,0,len(array))
+    max = recursive_msa(0,len(array), array)
     return max
 
 
@@ -87,9 +87,9 @@ def linearTime_msa(array=[]):
             max_ending_here = array[i]
             start_idx_so_far = i
 
-        if(max_so_far < max_ending_here):   #should this be lt or lteq?
+        if(max_so_far <= max_ending_here):   #should this be lt or lteq?
             max_so_far = max_ending_here
             start_idx = start_idx_so_far
             stop_idx = i
 
-    return start_idx, stop_idx, max_so_far
+    return start_idx_so_far, stop_idx, max_so_far

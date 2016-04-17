@@ -32,6 +32,46 @@ def betterEnum_msa(array=[]):
                 stopIdx = j
     return startIdx, stopIdx, maxSum
 
+#Algorithm 3
+def recursive_msa(array=[], left_bound, right_bound):
+    left_max, mid_max, right_max, sub_max, total_sum = 0
+    max_left_side, max_right_side = -1000000, -1000000
+    
+    #Check if the is only one variable left
+    if (left_bound == right_bound):
+        return array[left_bound]
+    
+    #Find the maximum subarrays on the left and right
+    left_max = recursive_msa(array,left_bound,(left_bound+right_bound)/2)
+    right_max = recursive_msa(array,(left_bound+right_bound)/2+1,right_bound)
+    
+    #Maximum for a middle sub array array
+    #Find max on left side
+    for i in range(left_bound+right_bound)/2, left_bound-1, -1):
+        total_sum += array[i]
+        #Update the left side maximum
+        if (total_sum > max_left_side):
+            max_left_side = total_sum
+    total_sum = 0
+    #Find max on right side
+    for i in range(left_bound+right_bound)/2+1,right_bound+1):
+        total_sum += array[i]
+        #Update the right side maximum
+        if (total_sum > max_right_side):
+            max_right_side = total_sum
+    
+    mid_max = max_left_side + max_right_side
+
+    #Finds the biggest of the three and returns it
+    sub_max = max(max(left_max,right_max),mid_max)
+    
+    return sub_max
+
+def recursive_holder_msa(array=[]):
+    max = recursive_msa(array,0,len(array))
+    return max
+
+
 #Algorithm 4
 def linearTime_msa(array=[]):
     max_so_far = array[0]

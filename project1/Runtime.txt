@@ -1,0 +1,14 @@
+
+3)
+With each call, the array splits into two subarrays and both halves of the array
+are traversed. So
+T(n) = T(n/2) + T(n/2) + n/2 + n/2
+T(n) = 2T(n/2) + n
+
+Using case II of the Master's theorem,
+a = 2, b = 2, c = 1, f(n) = n
+Case 2 condition:
+f(n) = O(n^c*log^k(n)) where c = 1 and k = 0.
+logb(a) = lg(2) = 1 = c, so the second case is satisfied.
+So
+T(n) = O(n^logb(a)*log^(k+1)(n)) = O(n^1*log^1(n)) = O(n*log(n))

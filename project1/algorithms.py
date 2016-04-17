@@ -68,7 +68,7 @@ def recursive_msa(array=[], left_bound, right_bound):
     return sub_max
 
 def recursive_holder_msa(array=[]):
-    max = recursive_msa(array,0,len(array)
+    max = recursive_msa(array,0,len(array))
     return max
 
 

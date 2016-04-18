@@ -13,9 +13,10 @@ def getArrFromFile(src):
     return arrData
 
 
-def getResults(src, algo, algoName):
+def getResults(src, algo, algoName, myArr=[[]]):
     #get list of arrays
-    myArr = getArrFromFile('MSS_Problems.txt')
+    if myArr == [[]]:
+        myArr = getArrFromFile('MSS_Problems.txt')
 
     file = open(src, "a")
     file.write("\n"+algoName+"\n")
@@ -43,14 +44,29 @@ def randomArrayGen():
 
 def randomTest(algo1, algo2, algo3, algo4):
     myArr = randomArrayGen()
+    src = "MSS_Error.txt"
     
     result1 = algo1(myArr)
     result2 = algo2(myArr)
     result3 = algo3(myArr)
     result4 = algo4(myArr)
     
-    if result1 != result2 or result3 != result4:
-        print("error")
+    if result1 != result2:
+        print "ERROR"
+        print algo1, " and ", algo2, " do not agree on the following array: ", myArr
+    if result3 != result4:
+        print "ERROR"
+        print algo3, " and ", algo4, " do not agree on the following array: ", myArr
+        if result3 != result1:
+            if result3 != result2:
+                print "ERROR"
+                print "Algorithm 3 is wrong on the following array: ", myArr
+                getResults(src, algo3, "ERROR: linearTime_msa", [myArr])
+        if result4 != result1:
+            if result4 != result2:
+                print "ERROR"
+                print "Algorithm 4 is wrong on the following array: ", myArr
+                getResults(src, algo4, "ERROR: linearTime_msa", [myArr])
     else:
         print("Test passed")
 

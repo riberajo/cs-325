@@ -21,9 +21,10 @@ def main():
     randomTest(enum_msa, betterEnum_msa, recursive_msa_call, linearTime_msa)
 
     #gets running times for various iteration numbers
-    #plotTimes(enum_msa, alg1name, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
-    #plotTimes(betterEnum_msa, alg2name, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
-    #plotTimes(recursive_msa_call, alg3name, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
+    #Comment out what you don't need
+    plotTimes(enum_msa, alg1name, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
+    plotTimes(betterEnum_msa, alg2name, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
+    plotTimes(recursive_msa_call, alg3name, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
     plotTimes(linearTime_msa, alg4name, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
     print("finished")
     

@@ -35,15 +35,15 @@ def writeData(file, Arr, subArr, maxSum):
     file.write('{0}\n'.format(subArr))
     file.write('{0}\n\n'.format(maxSum))
 
-def randomArrayGen():
-    # Pushes random numbers into an array of size 100
+def randomArrayGen(n):
+    # Pushes random numbers into an array of size n
     myRandomArr = []
-    for i in range (100):
+    for i in range (n):
         myRandomArr.append(random.randrange(-100,100,1))
     return myRandomArr
 
 def randomTest(algo1, algo2, algo3, algo4):
-    myArr = randomArrayGen()
+    myArr = randomArrayGen(100)
     src = "MSS_Error.txt"
     
     result1 = algo1(myArr)
@@ -75,46 +75,38 @@ def randomTest(algo1, algo2, algo3, algo4):
     else:
         print("Test passed")
 
-def getTimes(algo, n):
-    myArr = randomArrayGen()
-    runningTime = 0
+def getTimes(algo, algoName, n):
+    myArr = randomArrayGen(n)
 
     #start clock
-    start = time.clock()
-    for i in range(0, n):
+    start = time.time()
+    for i in range(10):
         result1 = algo(myArr)
     #stop clock
-    algPlusForTime = time.clock() - start
+    algPlusForTime = time.time() - start
 
     #for loop time
     #start clock
-    start = time.clock()
-    for i in range(0, n):
+    start = time.time()
+    for i in range(10):
         pass
     #stop clock
-    forTime = time.clock() - start
+    forTime = time.time() - start
 
     #find the difference
     runningTime = algPlusForTime - forTime
 
+    #average
+    runningTime /= 10
+    print algoName, " time = ", runningTime, " seconds for n = ", n 
+
     #return total
     return runningTime
-    
-def getAlgTime(algo, algoName, n):
-    algoTime = 0
-    # Gets a  random generated array and calculates the time taken to execute  
-    for i in range(0, 10):
-        algoTime += getTimes(algo, n)
-
-    algoTime /= 10
-    print algoName, " time = ", algoTime, " seconds for n = ", n 
-    
-    return algoTime
 
 def plotTimes(algo, algoName, iterations):
     file = open("MSS_Timing.txt", "a")
 
     file.write("\n"+algoName+"\n")
     for n in iterations:
-        time = getAlgTime(algo, algoName, n)
+        time = getTimes(algo, algoName, n)
         file.write('\n'+'n = '+str(n)+' time = '+str(time)+' seconds')

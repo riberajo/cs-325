@@ -75,88 +75,42 @@ def randomTest(algo1, algo2, algo3, algo4):
     else:
         print("Test passed")
 
-def getTimes(algo):
+def getTimes(algo, n):
     myArr = randomArrayGen()
     runningTime = 0
-    for i in range(10):
-        #start clock
-        start = time.clock()
+
+    #start clock
+    start = time.clock()
+    for i in range(0, n):
         result1 = algo(myArr)
-        #stop clock
-        elapsedTime = time.clock() - start
-        #add to total running time
-        runningTime+=elapsedTime
+    #stop clock
+    algPlusForTime = time.clock() - start
+
+    #for loop time
+    #start clock
+    start = time.clock()
+    for i in range(0, n):
+        pass
+    #stop clock
+    forTime = time.clock() - start
+
+    #find the difference
+    runningTime = algPlusForTime - forTime
+
     #return average
-    return runningTime / 10
+    return runningTime
     
-def getAlgTime(algo, algoName, numerations):
+def getAlgTime(algo, algoName, n):
+    algoTime = 0
     # Gets a  random generated array and calculates the time taken to execute  
-    for i in range(numerations):
-        algoTime = getTimes(algo)
+    for i in range(0, 10):
+        algoTime += getTimes(algo, n)
 
-    print(algoName, algoTime, "iteration", i+1)
+    algoTime /= 10
+    print algoName, " time = ", algoTime, " seconds for n = ", n 
 
-def plotAlltheTimes(algo1, algo2, algo3, algo4, algo1Name, algo2Name, algo3Name, algo4Name):
-    #n^2 and n^3 algs
-    iteration = 100
-    print(getAlgTime(algo1, algo1Name, iteration))
-    print(getAlgTime(algo2, algo2Name, iteration))
-    iteration = 200
+def plotTimes(algo, algoName, iterations):
     
-    print(getAlgTime(algo1, algo1Name, iteration))
-    print(getAlgTime(algo2, algo2Name, iteration))
-    
-    iteration = 300
-    print(getAlgTime(algo1, algo1Name, iteration))
-    print(getAlgTime(algo2, algo2Name, iteration))
-    
-    iteration = 400
-    print(getAlgTime(algo1, algo1Name, iteration))
-    print(getAlgTime(algo2, algo2Name, iteration))
-    
-    iteration = 500
-    print(getAlgTime(algo1, algo1Name, iteration))
-    print(getAlgTime(algo2, algo2Name, iteration))
-    
-    iteration = 600
-    print(getAlgTime(algo1, algo1Name, iteration))
-    print(getAlgTime(algo2, algo2Name, iteration))
-    
-    iteration = 700
-    print(getAlgTime(algo1, algo1Name, iteration))
-    print(getAlgTime(algo2, algo2Name, iteration))
-    
-    iteration = 800
-    print(getAlgTime(algo1, algo1Name, iteration))
-    print(getAlgTime(algo2, algo2Name, iteration))
-    
-    iteration = 900
-    print(getAlgTime(algo1, algo1Name, iteration))
-    print(getAlgTime(algo2, algo2Name, iteration))
-    
-    iteration = 1000
-    print(getAlgTime(algo1, algo1Name, iteration))
-    print(getAlgTime(algo2, algo2Name, iteration))
-    print(getAlgTime(algo3, algo3Name, iteration))
-    print(getAlgTime(algo4, algo4Name, iteration))
-   
-    #linear and nlgn algs     
-    iteration = 10000
-    print(getAlgTime(algo3, algo3Name, iteration))
-    print(getAlgTime(algo4, algo4Name, iteration))
-    
-    iteration = 100000
-    print(getAlgTime(algo3, algo3Name, iteration))
-    print(getAlgTime(algo4, algo4Name, iteration))
+    for n in iterations:
+        getAlgTime(algo, algoName, n)
 
-    iteration = 1000000
-    print(getAlgTime(algo3, algo3Name, iteration))
-    print(getAlgTime(algo4, algo4Name, iteration))
-
-    iteration = 10000000
-    print(getAlgTime(algo3, algo3Name, iteration))
-    print(getAlgTime(algo4, algo4Name, iteration))
-    
-    iteration = 100000000
-    print(getAlgTime(algo3, algo3Name, iteration))
-    print(getAlgTime(algo4, algo4Name, iteration))

@@ -76,11 +76,11 @@ def randomTest(algo1, algo2, algo3, algo4):
         print("Test passed")
 
 def getTimes(algo, algoName, n):
-    myArr = randomArrayGen(n)
 
     #start clock
     start = time.time()
     for i in range(10):
+        myArr = randomArrayGen(n)
         result1 = algo(myArr)
     #stop clock
     algPlusForTime = time.time() - start
@@ -89,7 +89,7 @@ def getTimes(algo, algoName, n):
     #start clock
     start = time.time()
     for i in range(10):
-        pass
+        myArr = randomArrayGen(n)
     #stop clock
     forTime = time.time() - start
 

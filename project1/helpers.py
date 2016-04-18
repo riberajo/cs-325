@@ -49,24 +49,29 @@ def randomTest(algo1, algo2, algo3, algo4):
     result1 = algo1(myArr)
     result2 = algo2(myArr)
     result3 = algo3(myArr)
+    #DEBUGGING: print "**********************RUNNING RANDOM ALGORITHM 4***********************************"
     result4 = algo4(myArr)
     
     if result1 != result2:
         print "ERROR"
-        print algo1, " and ", algo2, " do not agree on the following array: ", myArr
+        print "Algorithm 1 and Algorithm 2 do not agree on the following array: ", myArr
     if result3 != result4:
         print "ERROR"
-        print algo3, " and ", algo4, " do not agree on the following array: ", myArr
+        print "Algorithm 3 and Algorithm 4 do not agree on the following array: ", myArr
         if result3 != result1:
             if result3 != result2:
                 print "ERROR"
                 print "Algorithm 3 is wrong on the following array: ", myArr
+                print "See MSS_Error.txt"
                 getResults(src, algo3, "ERROR: linearTime_msa", [myArr])
+                getResults(src, algo1, "CORRECT ANSWER:", [myArr])
         if result4 != result1:
             if result4 != result2:
                 print "ERROR"
                 print "Algorithm 4 is wrong on the following array: ", myArr
+                print "See MSS_Error.txt"
                 getResults(src, algo4, "ERROR: linearTime_msa", [myArr])
+                getResults(src, algo1, "CORRECT ANSWER:", [myArr])
     else:
         print("Test passed")
 

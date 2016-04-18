@@ -104,10 +104,10 @@ def linearTime_msa(array=[]):
 
         if(max_so_far <= max_ending_here):   #should this be lt or lteq?
             max_so_far = max_ending_here
-            print "New start_idx: ", start_idx_so_far
+            #DEBUGGING: print "New start_idx: ", start_idx_so_far
             start_idx = start_idx_so_far
             stop_idx = i
-            print "New stop_idx: ", i
+            #DEBUGGING: print "New stop_idx: ", i
 
-    print "RETURNING: start_idx = " 
+    #DEBUGGING: print "RETURNING: start_idx = " 
     return start_idx, stop_idx, max_so_far

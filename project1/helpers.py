@@ -97,7 +97,7 @@ def getTimes(algo, n):
     #find the difference
     runningTime = algPlusForTime - forTime
 
-    #return average
+    #return total
     return runningTime
     
 def getAlgTime(algo, algoName, n):
@@ -108,9 +108,13 @@ def getAlgTime(algo, algoName, n):
 
     algoTime /= 10
     print algoName, " time = ", algoTime, " seconds for n = ", n 
+    
+    return algoTime
 
 def plotTimes(algo, algoName, iterations):
-    
-    for n in iterations:
-        getAlgTime(algo, algoName, n)
+    file = open("MSS_Timing.txt", "a")
 
+    file.write("\n"+algoName+"\n")
+    for n in iterations:
+        time = getAlgTime(algo, algoName, n)
+        file.write('\n'+'n = '+str(n)+' time = '+str(time)+' seconds')

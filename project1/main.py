@@ -24,8 +24,8 @@ def main():
     #Comment out what you don't need
     plotTimes(enum_msa, alg1name, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
     plotTimes(betterEnum_msa, alg2name, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
-    plotTimes(recursive_msa_call, alg3name, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
-    plotTimes(linearTime_msa, alg4name, [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
+    plotTimes(recursive_msa_call, alg3name, [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000])
+    plotTimes(linearTime_msa, alg4name, [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000])
     print("finished")
     
 if __name__ == "__main__":

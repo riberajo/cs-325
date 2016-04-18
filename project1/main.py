@@ -22,10 +22,10 @@ def main():
 
     #gets running times for various iteration numbers
     #Comment out what you don't need
-    plotTimes(enum_msa, alg1name, [50, 100, 150, 200, 250, 300, 350, 400, 450, 500])
+    plotTimes(enum_msa, alg1name, [100, 200, 300, 400, 500, 550, 600, 650, 700, 750])
     plotTimes(betterEnum_msa, alg2name, [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000])
-    plotTimes(recursive_msa_call, alg3name, [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000])
-    plotTimes(linearTime_msa, alg4name, [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000])
+    plotTimes(recursive_msa_call, alg3name, [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000])
+    plotTimes(linearTime_msa, alg4name, [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000])
     print("finished")
     
 if __name__ == "__main__":

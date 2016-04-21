@@ -7,10 +7,10 @@ def getArrFromFile(src):
         while True:
             line1 = file.readline().strip().strip(']').strip('[').replace(' ','').split(',')
             line2 = file.readline().strip()
-            line1arr = [int(x) for x in line1 if x != '']
+            line1Arr = [int(x) for x in line1 if x != '']
             if not line2:
                 break
-            arrData.append([line1arr, int(line2)])
+            arrData.append([line1Arr, int(line2)])
 
     return arrData
 

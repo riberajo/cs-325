@@ -88,38 +88,38 @@ def randomTest(algo1, algo2, algo3, algo4):
     else:
         print("Test passed")
 
-def getTimes(algo, algoName, n):
+def getTimes(algo, algoName, n, coinArr):
 
     #start clock
     start = time.time()
     for i in range(10):
-        myArr = randomArrayGen(n)
-        result1 = algo(myArr)
+        result1 = algo(coinArr, n)
     #stop clock
-    algPlusForTime = time.time() - start
-
-    #for loop time
-    #start clock
-    start = time.time()
-    for i in range(10):
-        myArr = randomArrayGen(n)
-    #stop clock
-    forTime = time.time() - start
-
-    #find the difference
-    runningTime = algPlusForTime - forTime
+    runningTime = time.time() - start
 
     #average
     runningTime /= 10
-    print algoName, " time = ", runningTime, " seconds for n = ", n
+    #print algoName, " time = ", runningTime, " seconds for n = ", n
 
     #return total
     return runningTime
 
-def plotTimes(algo, algoName, iterations):
-    file = open("MSS_Timing.txt", "a")
-
-    file.write("\n"+algoName+"\n")
+def plotTimes(algo, algoName, iterations, coinArr, outputFile):
+    file = open(outputFile, "a+")
+    timeArr = []
+    np.set_printoptions(precision=6)
     for n in iterations:
-        time = getTimes(algo, algoName, n)
-        file.write('\n'+'n = '+str(n)+' time = '+str(time)+' seconds')
+        time = getTimes(algo, algoName, n, coinArr)
+        timeArr.append(time)
+        if n % 13 == 0:
+            print("working")
+
+    yarray = np.array(timeArr)
+    xarray = np.array(iterations)
+
+    data = np.array([xarray, yarray])
+    data = data.T
+
+    np.savetxt(file, data, fmt=['%d','%.6f'])
+
+    file.close()

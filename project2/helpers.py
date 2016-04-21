@@ -1,6 +1,7 @@
 import random
 import time
 import numpy as np
+
 def getArrFromFile(src):
     arrData = []
     with open(src) as file:

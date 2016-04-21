@@ -15,34 +15,26 @@ def getArrFromFile(src):
     return arrData
 
 
-def getResults(src, algo, algoName, myArr=[[]]):
+def getResults(inputFile, algo, algoName, outputFile):
     #get list of arrays
-    if myArr == [[]]:
-        myArr = getArrFromFile('MSS_Problems.txt')
+    myArr = getArrFromFile(inputFile)
 
-    file = open(src, "a")
-    file.write("\n"+algoName+"\n")
+    file = open(outputFile, "a+")
+    file.write("\n"+ "Algorithm:"+algoName+"\n")
 
     #loop through list of arrays and write results to file
-    for i in range(len(myArr)):
-        testArray = myArr[i]
-        result = algo(testArray)
-        maxSum = result[2]
-        subArr = testArray[result[0]:result[1]+1]
-        writeData(file, testArray, subArr, maxSum)
+    for i in myArr:
+        coins = i[0]
+        target = i[1]
+        result = algo(coins, target)
+        coinArr = result[1]
+        coinsUsed = result[0]
+        writeData(file, coinArr, coinsUsed)
 
-def writeData(file, Arr, subArr, maxSum):
+def writeData(file, Arr, coinsUsed):
     # Writes original array, sub array, and max for each line in file
     file.write('{0}\n'.format(Arr))
-    file.write('{0}\n'.format(subArr))
-    file.write('{0}\n\n'.format(maxSum))
-
-def randomArrayGen(n):
-    # Pushes random numbers into an array of size n
-    myRandomArr = []
-    for i in range (n):
-        myRandomArr.append(random.randrange(-100,100,1))
-    return myRandomArr
+    file.write('{0}\n'.format(coinsUsed))
 
 def randomTest(algo1, algo2, algo3, algo4):
     myArr = randomArrayGen(100)

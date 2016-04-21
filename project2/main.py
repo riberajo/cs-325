@@ -12,14 +12,10 @@ def main():
         inputfile = sys.argv[1]
         #set output file name
         outputfile = inputfile.split('.')[0] + "change.txt"
-
-
-        #will be used to call functions, but for now just print file data
-        arrData = getArrFromFile(inputfile)
-        for i in arrData:
-            coins = i[0]
-            target = i[1]
-            print(changedp(coins, target))
+        #def getResults(inputFile, algo, algoName, outputFile):
+        #reads array/coins from input file and writes results to output file
+        getResults(inputfile, changedp, "changedp", outputfile)
+        print("Finished")
     else:
         print("Put filename in cmdline - python main.py [name].txt")
 

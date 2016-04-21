@@ -1,6 +1,6 @@
 import random
 import time
-
+import numpy as np
 def getArrFromFile(src):
     arrData = []
     with open(src) as file:
@@ -30,11 +30,30 @@ def getResults(inputFile, algo, algoName, outputFile):
         coinArr = result[1]
         coinsUsed = result[0]
         writeData(file, coinArr, coinsUsed)
+    file.close()
 
 def writeData(file, Arr, coinsUsed):
-    # Writes original array, sub array, and max for each line in file
     file.write('{0}\n'.format(Arr))
     file.write('{0}\n'.format(coinsUsed))
+
+def getCSVResults(coinArr, A_list, algo, outputFile):
+    datafile_id = open(outputFile, 'a+')
+
+    myArr = []
+    for i in A_list:
+        results = algo(coinArr, i)
+        myArr.append(results[0])
+
+    yarray = np.array(myArr)
+    xarray = np.array(A_list)
+
+    data = np.array([xarray, yarray])
+    data = data.T
+
+    np.savetxt(datafile_id, data, fmt=['%d','%d'])
+
+    datafile_id.close()
+
 
 def randomTest(algo1, algo2, algo3, algo4):
     myArr = randomArrayGen(100)

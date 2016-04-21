@@ -4,11 +4,13 @@ import time
 def getArrFromFile(src):
     arrData = []
     with open(src) as file:
-        for line in file:
-            #remove space and brackets
-            line = line.replace('[', '').replace(' ', '').replace(']', '')
-            #create list
-            arrData.append([int(num) for num in line.split(',') if num not in '\n'])
+        while True:
+            line1 = file.readline().strip().strip(']').strip('[').replace(' ','').split(',')
+            line2 = file.readline().strip()
+            line1arr = [int(x) for x in line1 if x != '']
+            if not line2:
+                break
+            arrData.append([line1arr, int(line2)])
 
     return arrData
 
@@ -45,13 +47,13 @@ def randomArrayGen(n):
 def randomTest(algo1, algo2, algo3, algo4):
     myArr = randomArrayGen(100)
     src = "MSS_Error.txt"
-    
+
     result1 = algo1(myArr)
     result2 = algo2(myArr)
     result3 = algo3(myArr)
     #DEBUGGING: print "**********************RUNNING RANDOM ALGORITHM 4***********************************"
     result4 = algo4(myArr)
-    
+
     if result1 != result2:
         print "ERROR"
         print "Algorithm 1 and Algorithm 2 do not agree on the following array: ", myArr
@@ -98,7 +100,7 @@ def getTimes(algo, algoName, n):
 
     #average
     runningTime /= 10
-    print algoName, " time = ", runningTime, " seconds for n = ", n 
+    print algoName, " time = ", runningTime, " seconds for n = ", n
 
     #return total
     return runningTime

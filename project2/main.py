@@ -3,6 +3,7 @@
 from algorithms import *
 from helpers import *
 from changedp_problems import *
+from changegreedy_problems import *
 
 import sys
 
@@ -17,6 +18,7 @@ def main():
         #set output file name
         outputfile = inputfile.split('.')[0] + "change.txt"
         getChangedpData(inputfile, outputfile)
+        getChangeGreedyData(inputfile, outputfile)
 
 
         print("Finished")

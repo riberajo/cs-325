@@ -2,7 +2,45 @@
 #Algorithm 1
 
 
+
 #Algorithm 2
+def changegreedy(coins, total):
+    #set array to inf
+    #minCoins =  [float("inf") for j in range(total+1)]
+    # first val is 0
+    #minCoins[0] = 0
+    sortedCoins = []
+
+    #arrays for getting used coins
+    usedCoins = [0]*len(coins)
+    coins_used = [0] * (total + 1)
+
+    #sorted coins = coins we can use
+    for i in reversed(coins):
+        sortedCoins.append(i)
+
+    #coin totals needed
+    coinTotals = [total]
+    minCoins = sortedCoins
+
+    for index, i in enumerate(coinTotals):
+        coin_total = 0
+        coins_used = 0
+        temp = i
+        for idx, j in enumerate(sortedCoins):
+            minCoins[idx] = 0
+            while (temp - j >= 0):
+                minCoins[idx] += 1
+                coins_used += 1
+                coin_total += 1
+                temp -= j
+            coinTotals[index] = coin_total
+
+    minCoins.reverse()
+    print minCoins
+    print coinTotals
+
+    return minCoins, coinTotals
 
 
 #Algorithm 3

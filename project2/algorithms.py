@@ -21,7 +21,7 @@ def changegreedy(coins, total):
 
     #coin totals needed
     coinTotals = [total]
-    minCoins = sortedCoins
+    minCoins = map(int,sortedCoins)
 
     for index, i in enumerate(coinTotals):
         coin_total = 0
@@ -37,10 +37,9 @@ def changegreedy(coins, total):
             coinTotals[index] = coin_total
 
     minCoins.reverse()
-    print minCoins
-    print coinTotals
 
-    return minCoins, coinTotals
+    #return minCoins, coinTotals
+    return coinTotals[-1], minCoins
 
 
 #Algorithm 3
@@ -79,5 +78,5 @@ def changedp(coins, total):
     while coin > 0:
         usedCoins[coins.index(coins_used[coin])] += 1
         coin -= coins_used[coin]
-        
+
     return minCoins[-1], usedCoins

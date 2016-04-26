@@ -10,7 +10,7 @@ def getChangeGreedyData(inputfile, outputfile):
     #def getCSVResults(coinArr, A_list, algo, outputFile):
     # Problem 4
     coinArr =  [1, 5, 10, 25, 50]
-    A_list = range(2010, 2200, 5)
+    A_list = range(2010, 2225, 5)
     getCSVResults(coinArr, A_list, changegreedy, "changegreedy_prob4.csv")
     plotTimes(changegreedy, "changegreedy", A_list, coinArr, "changegreedy_prob4Spd.csv")
 

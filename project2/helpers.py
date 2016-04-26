@@ -51,7 +51,7 @@ def getCSVResults(coinArr, A_list, algo, outputFile):
     data = np.array([xarray, yarray])
     data = data.T
 
-    np.savetxt(datafile_id, data, fmt=['%d','%d'])
+    np.savetxt(datafile_id, data, delimiter=",", fmt=['%d','%d'])
 
     datafile_id.close()
 
@@ -87,6 +87,6 @@ def plotTimes(algo, algoName, iterations, coinArr, outputFile):
     data = np.array([xarray, yarray])
     data = data.T
 
-    np.savetxt(file, data, fmt=['%d','%.6f'])
+    np.savetxt(file, data, delimiter=",", fmt=['%d','%.6f'])
 
     file.close()

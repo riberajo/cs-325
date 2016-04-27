@@ -20,6 +20,8 @@ def main():
         getChangedpData(inputfile, outputfile)
         getChangeGreedyData(inputfile, outputfile)
 
+        print("Running bruteforce alg, for sample data it took ~20+ minutes")
+        getResults(inputfile, changeslow, "changeslow", outputfile)
 
         print("Finished")
     else:

@@ -17,8 +17,13 @@ def main():
         inputfile = sys.argv[1]
         #set output file name
         outputfile = inputfile.split('.')[0] + "change.txt"
-        getChangedpData(inputfile, outputfile)
-        getChangeGreedyData(inputfile, outputfile)
+
+        # if you have numpy installed you can run the time / problem question
+        #getChangedpData(inputfile, outputfile)
+        #getChangeGreedyData(inputfile, outputfile)
+
+        getResults(inputfile, changedp, "changedp", outputfile)
+        getResults(inputfile, changegreedy, "changegreedy", outputfile)
 
         print("Running bruteforce alg, for sample data it took ~20+ minutes")
         getResults(inputfile, changeslow, "changeslow", outputfile)

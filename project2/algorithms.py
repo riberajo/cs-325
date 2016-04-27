@@ -1,7 +1,58 @@
 
 #Algorithm 1
+#Brute force algorithm. Count is correct but C[i] is not
+def changeslow(coins, total):
 
+     total_Count = total
+     coins_used = [0] * len(coins)
 
+     #for i in range(0, len(coins)):    
+     #    if(sum(usedCoins) == total):
+     #         return usedCoins, total_Count
+
+     #else:
+     count = 0 
+     #used = [] 
+     for i in range(0, len(coins)):
+          if(coins[i] <= total):    
+               used, count = changeslow(coins, total-coins[i]) 
+               count = count + 1 
+               used[i] = used[i] + 1   
+        
+    
+               if (count < total_Count):
+    
+                    total_Count = count
+                    coins_used[i] = used[i]  
+     return coins_used, total_Count
+#divide and conquer algorithm. Base case returns correctly but divide and conquer portion does not.
+#def changeslow(coins, total):
+#
+#     coinsUsed = [0] * len(coins)
+#     minCoins = 0 
+#     for i in range(len(coins)):
+#          if coins[i] ==total:
+#               coinsUsed[i] = 1 
+#               minCoins += 1
+#               return(coinsUsed, minCoins);
+#
+#          else:
+#               #minCoins = float('inf')
+#               soln1=[]
+#               soln2=[]  
+#               for i in range(1, total):
+#                    soln1 = changeslow(coins, i)
+#                    soln2 = changeslow(coins, total-i)
+          #sum1 = sum(soln1)
+          #sum2 = sum(soln2)
+          #count = soln1 + soln2
+#                    if sum(soln1)+sum(soln2) < minCoins:
+ #       
+#                              minCoins = sum(soln1[i]) + sum(soln2[i]) 
+#                              coinsUsed = [soln1[i] + soln2[i] for i in xrange (len(coins))]
+#
+#
+ #    return (coinsUsed, minCoins);
 
 #Algorithm 2
 def changegreedy(coins, total):

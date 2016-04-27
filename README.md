@@ -6,14 +6,7 @@
  - ```cd myDir```
  - ```cd project2```
  - ```python main.py [textfile.txt]```
- - To get csv data you need to [install numpy](http://docs.scipy.org/doc/numpy-1.10.1/user/install.html)
-
-### Todos
- - Implement changeslow
- - Implement changegreedy
- - ~~~Implement changedp~~~
- - ~~~Implement read/write results function~~~
- - ~~~Implement speed/timing function~~~
- - ~~~Implement functions for problems 4-7~~~
+ - To get csv data you need to [install numpy](http://docs.scipy.org/doc/numpy-1.10.1/user/install.html) and uncomment lines 22 and 23 in main.py
+ - Because bruteforce takes so long with the sample data we have it as the last test to run. 
 
 

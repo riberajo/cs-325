@@ -11,3 +11,4 @@
 -   Because bruteforce takes so long with the sample data we have it as the last test to run.
 
 -- test
+-- test 2
